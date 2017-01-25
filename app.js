@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Todo = require('./models/todoModel');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT;
 
 const db = mongoose.connect('mongodb://heroku_dl347tzl:3dirrpbvob12eh69fkpi0akqb0@ds147497.mlab.com:47497/heroku_dl347tzl');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
